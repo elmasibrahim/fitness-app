@@ -1,4 +1,5 @@
 import ListGroup from "./ListGroup";
+import "./Sidebar.css";
 
 const Sidebar = () => {
   const items = [
@@ -11,7 +12,11 @@ const Sidebar = () => {
     "Core",
   ];
 
-  return <ListGroup items={items} />;
+  return (
+    <div className="sidebar">
+      <ListGroup items={items} />
+    </div>
+  );
 };
 
 export default Sidebar;
