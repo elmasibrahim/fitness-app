@@ -1,5 +1,5 @@
 import ListGroup from "./ListGroup";
-import "./Sidebar.css";
+import "./styles/Sidebar.css";
 
 const Sidebar = () => {
   const items = [
