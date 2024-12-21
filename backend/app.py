@@ -64,7 +64,21 @@ def beine() -> dict:
     """
     Function for getting leg exercises
     """
-    # Hier bei den Beinübungen weitermachen
+    return {
+        "Ausfallschritt": "Mit Hanteln an beiden Händen",
+        "Beinpresse": "Aufrecht sitzen",
+    }
+
+
+@app.route("/Core")
+def core() -> dict:
+    """
+    Function for getting core exercises
+    """
+    return {
+        "Plank": "Gerader Rücken, Ellenbogen auf Schulterhöhe",
+        "Crunches": "Beine im 90 Grad-Winkel",
+    }
 
 
 if __name__ == "__main__":
