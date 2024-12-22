@@ -9,7 +9,12 @@ const Body = () => {
   const fetchData = async (path: string) => {
     const response = await fetch("http://127.0.0.1:5000/" + path);
     const result = await response.json();
-    setData(result);
+    return result;
+  };
+
+  const handleSidebarClick = async (mucscleGroup: string) => {
+    const data = await fetchData(mucscleGroup);
+    setData(data);
   };
 
   return (
