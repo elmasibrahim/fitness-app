@@ -20,7 +20,7 @@ const Body = () => {
   return (
     <div className="row">
       <div className="col-2 left-col">
-        <Sidebar />
+        <Sidebar onClick={handleSidebarClick} />
       </div>
       <div className="col">
         <Content />

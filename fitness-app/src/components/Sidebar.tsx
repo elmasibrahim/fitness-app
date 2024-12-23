@@ -1,7 +1,11 @@
 import ListGroup from "./ListGroup";
 import "./styles/Sidebar.css";
 
-const Sidebar = () => {
+interface Props {
+  onClick: (mucscleGroup: string) => void;
+}
+
+const Sidebar = ({ onClick }: Props) => {
   const items = [
     "Schulter",
     "Rücken",
@@ -14,7 +18,7 @@ const Sidebar = () => {
 
   return (
     <div className="sidebar">
-      <ListGroup items={items} />
+      <ListGroup items={items} onClick={onClick} />
     </div>
   );
 };
