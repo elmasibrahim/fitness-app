@@ -4,7 +4,7 @@ import Body from "./components/Body";
 const App = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar title="Fitness-App" />
       <Body />
     </div>
   );

@@ -1,10 +1,14 @@
 import Control from "./Control";
 
-const Navbar = () => {
+interface Props {
+  title: string;
+}
+
+const Navbar = ({ title }: Props) => {
   return (
     <nav className="navbar bg-body-tertiary">
       <div className="container-fluid">
-        <span className="navbar-brand mb-0 h1">Navbar</span>
+        <span className="navbar-brand mb-0 h1">{title}</span>
         <div className="d-flex">
           <Control>Dark Mode</Control>
         </div>
