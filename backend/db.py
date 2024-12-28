@@ -20,3 +20,15 @@ class DB:
             host="localhost", user="fitness", password="fitness", database="fitnessApp"
         )
         return connection
+
+    @staticmethod
+    def action(query: str, params: tuple = None) -> None:
+        """
+        Static method for executing a query without getting data back
+        """
+        connection = DB.create_connection()
+        cursor = connection.cursor()
+        cursor.execute(query, params)
+        connection.commit()
+        cursor.close()
+        connection.close()
