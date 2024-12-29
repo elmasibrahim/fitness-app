@@ -32,3 +32,16 @@ class DB:
         connection.commit()
         cursor.close()
         connection.close()
+
+    @staticmethod
+    def fetch(query: str, params: tuple = None) -> list[tuple]:
+        """
+        Static method for querying data from the database and returning all received tuples
+        """
+        connection = DB.create_connection()
+        cursor = connection.cursor()
+        cursor.execute(query, params)
+        data = cursor.fetchall()
+        cursor.close()
+        connection.close()
+        return data
