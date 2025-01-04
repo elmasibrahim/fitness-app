@@ -4,83 +4,21 @@ API File
 
 from flask import Flask
 from flask_cors import CORS
+from muscle_group import MuscleGroup
 
 app = Flask(__name__)
 CORS(app)
 
 
-@app.route("/Schulter")
-def schulter() -> dict:
+@app.route("/<muscle_group>")
+def exercises(muscle_group: str) -> dict:
     """
-    Function for getting shoulder exercises
+    Flask method for getting the exercises of a muscle group
     """
-    return {
-        "Shoulder Press": "Hanteln nach oben pressen mit Bank aufrecht",
-        "Rowing": "Rückwärts am Butterfly",
-    }
-
-
-@app.route("/Rücken")
-def ruecken() -> dict:
-    """
-    Function for getting back exercises
-    """
-    return {
-        "Latzug": "Zwei Griffe nach unten ziehen",
-        "Cable Row": "Sitzen und Dreieck nach hinten ziehen",
-    }
-
-
-@app.route("/Brust")
-def brust() -> dict:
-    """
-    Function for getting chest exercises
-    """
-    return {
-        "Brustpresse": "Am Gerät aufrecht Griffe nach vorne drücken",
-        "Butterfly": "Am Gerät, isoliert",
-    }
-
-
-@app.route("/Bizeps")
-def bizeps() -> dict:
-    """
-    Function for getting bizeps exercises
-    """
-    return {"Hammer Curls": "Hanteln vertikal", "Preacher Curls": "Hanteln horizontal"}
-
-
-@app.route("/Trizeps")
-def trizeps() -> dict:
-    """
-    Function for getting trizeps exercises
-    """
-    return {
-        "Trizeps Pushdowns": "Kabelozug nach unten ziehen",
-        "Trizepsdrücken": "An der Maschine Griffe nach vorne",
-    }
-
-
-@app.route("/Beine")
-def beine() -> dict:
-    """
-    Function for getting leg exercises
-    """
-    return {
-        "Ausfallschritt": "Mit Hanteln an beiden Händen",
-        "Beinpresse": "Aufrecht sitzen",
-    }
-
-
-@app.route("/Core")
-def core() -> dict:
-    """
-    Function for getting core exercises
-    """
-    return {
-        "Plank": "Gerader Rücken, Ellenbogen auf Schulterhöhe",
-        "Crunches": "Beine im 90 Grad-Winkel",
-    }
+    ins = MuscleGroup.get_muscle_group_by_name(muscle_group)
+    ins.add_exercises()
+    data = {exercise.name: exercise.description for exercise in ins.exercises}
+    return data
 
 
 if __name__ == "__main__":
