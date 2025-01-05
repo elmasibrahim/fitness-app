@@ -17,7 +17,10 @@ def exercises(muscle_group: str) -> dict:
     """
     ins = MuscleGroup.get_muscle_group_by_name(muscle_group)
     ins.add_exercises()
-    data = {exercise.name: exercise.description for exercise in ins.exercises}
+    data = {
+        exercise.name: [exercise.description, exercise.weight]
+        for exercise in ins.exercises
+    }
     return data
 
 
