@@ -11,16 +11,13 @@ CORS(app)
 
 
 @app.route("/<muscle_group>")
-def exercises(muscle_group: str) -> dict:
+def exercises(muscle_group: str) -> list:
     """
     Flask method for getting the exercises of a muscle group
     """
     ins = MuscleGroup.get_muscle_group_by_name(muscle_group)
     ins.add_exercises()
-    data = {
-        exercise.name: [exercise.description, exercise.weight]
-        for exercise in ins.exercises
-    }
+    data = [exercise.eid for exercise in ins.exercises]
     return data
 
 
