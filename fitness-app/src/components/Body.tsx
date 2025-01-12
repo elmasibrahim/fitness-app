@@ -2,18 +2,13 @@ import Sidebar from "./Sidebar";
 import Content from "./Content";
 import "./styles/Body.css";
 import { useState } from "react";
+import get from "./helpers/request";
 
 const Body = () => {
   const [data, setData] = useState([]);
 
-  const fetchData = async (path: string) => {
-    const response = await fetch("http://127.0.0.1:5000/" + path);
-    const result = await response.json();
-    return result;
-  };
-
   const handleSidebarClick = async (mucscleGroup: string) => {
-    const data = await fetchData(mucscleGroup);
+    const data = await get(mucscleGroup);
     setData(data);
   };
 
