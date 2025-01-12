@@ -4,7 +4,7 @@ import "./styles/Body.css";
 import { useState } from "react";
 
 const Body = () => {
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
   const fetchData = async (path: string) => {
     const response = await fetch("http://127.0.0.1:5000/" + path);
