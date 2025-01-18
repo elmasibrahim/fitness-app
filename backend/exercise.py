@@ -2,11 +2,26 @@
 Module containing the Exercise ORM class
 """
 
+from typing import Type
+from db import DB
+
 
 class Exercise:
     """
     ORM class
     """
+
+    @classmethod
+    def get_exercise_by_eid(cls, eid: int) -> Type["Exercise"]:
+        """
+        Class method for getting a exercise by eid
+        """
+        query = "SELECT name, description, weight FROM exercise WHERE eid = %s"
+        params = (eid,)
+        data = DB.fetch(query, params)
+        name, description, weight = data[0]
+        instance = cls(eid, name, description, weight)
+        return instance
 
     def __init__(self, eid: int, name: str, desc: str, weight: float):
         self.__eid = eid
