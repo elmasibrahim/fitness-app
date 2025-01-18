@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./styles/Card.css";
 import get from "./helpers/request";
+import Button from "./Button";
 
 interface Props {
   eid: number;
@@ -23,7 +24,14 @@ const Card = ({ eid }: Props) => {
       <div className="card-body d-flex flex-column">
         <h5 className="card-title">{data.name}</h5>
         <p className="card-text flex-grow-1">{data.description}</p>
-        <p className="card-text mt-auto">Weight: {data.weight} kg</p>
+        <div className="mt-auto d-flex justify-content-between align-items-center">
+          <p className="card-text">Weight: {data.weight} kg</p>
+          <Button
+            color="primary"
+            icon="pencil-square"
+            onClick={() => console.log("Clicked")}
+          />
+        </div>
       </div>
     </div>
   );
