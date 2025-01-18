@@ -20,10 +20,10 @@ const Card = ({ eid }: Props) => {
 
   return (
     <div className="card">
-      <div className="card-body">
+      <div className="card-body d-flex flex-column">
         <h5 className="card-title">{data.name}</h5>
-        <p className="card-text">{data.description}</p>
-        <p className="card-text">Weight: {data.weight} kg</p>
+        <p className="card-text flex-grow-1">{data.description}</p>
+        <p className="card-text mt-auto">Weight: {data.weight} kg</p>
       </div>
     </div>
   );
