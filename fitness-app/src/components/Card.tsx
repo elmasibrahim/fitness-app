@@ -9,6 +9,7 @@ interface Props {
 
 const Card = ({ eid }: Props) => {
   const [data, setData] = useState({ description: "", name: "", weight: 0.0 });
+  const [edit, setEdit] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
@@ -18,6 +19,10 @@ const Card = ({ eid }: Props) => {
     };
     getData();
   }, []);
+
+  const handleEditClick = () => {
+    setEdit(true);
+  };
 
   return (
     <div className="card">
@@ -29,7 +34,7 @@ const Card = ({ eid }: Props) => {
           <Button
             color="primary"
             icon="pencil-square"
-            onClick={() => console.log("Clicked")}
+            onClick={handleEditClick}
           />
         </div>
       </div>
