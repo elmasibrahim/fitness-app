@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./styles/Card.css";
 import get from "./helpers/request";
 import Button from "./Button";
+import Edit from "./Edit";
 
 interface Props {
   eid: number;
@@ -29,7 +30,7 @@ const Card = ({ eid }: Props) => {
       <div className="card-body d-flex flex-column">
         <h5 className="card-title">{data.name}</h5>
         {edit ? (
-          <p>Im Edit-Mode</p>
+          <Edit weight={data.weight} />
         ) : (
           <>
             <p className="card-text flex-grow-1">{data.description}</p>
