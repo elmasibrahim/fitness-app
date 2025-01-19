@@ -28,15 +28,21 @@ const Card = ({ eid }: Props) => {
     <div className="card">
       <div className="card-body d-flex flex-column">
         <h5 className="card-title">{data.name}</h5>
-        <p className="card-text flex-grow-1">{data.description}</p>
-        <div className="mt-auto d-flex justify-content-between align-items-center">
-          <p className="card-text">Weight: {data.weight} kg</p>
-          <Button
-            color="primary"
-            icon="pencil-square"
-            onClick={handleEditClick}
-          />
-        </div>
+        {edit ? (
+          <p>Im Edit-Mode</p>
+        ) : (
+          <>
+            <p className="card-text flex-grow-1">{data.description}</p>
+            <div className="mt-auto d-flex justify-content-between align-items-center">
+              <p className="card-text">Weight: {data.weight} kg</p>
+              <Button
+                color="primary"
+                icon="pencil-square"
+                onClick={handleEditClick}
+              />
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
