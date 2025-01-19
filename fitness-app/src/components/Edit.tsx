@@ -21,6 +21,10 @@ const Edit = ({ weight, setEdit }: Props) => {
     setEdit(false);
   };
 
+  const handleSaveClick = () => {
+    setEdit(false);
+  };
+
   return (
     <>
       <div className="d-flex justify-content-center align-items-center mt-1">
@@ -33,11 +37,7 @@ const Edit = ({ weight, setEdit }: Props) => {
           <Button color="danger" icon="x" onClick={handleExitClick} />
         </div>
         <div className="mx-2">
-          <Button
-            color="success"
-            icon="check"
-            onClick={() => console.log("Clicked save")}
-          />
+          <Button color="success" icon="check" onClick={handleSaveClick} />
         </div>
       </div>
     </>
