@@ -4,9 +4,10 @@ import { useState } from "react";
 interface Props {
   weight: number;
   setEdit: (edit: boolean) => void;
+  setWeight: (weight: number) => void;
 }
 
-const Edit = ({ weight, setEdit }: Props) => {
+const Edit = ({ weight, setEdit, setWeight }: Props) => {
   const [editWeight, setEditWeight] = useState(weight);
 
   const handleMinusClick = () => {
@@ -22,6 +23,7 @@ const Edit = ({ weight, setEdit }: Props) => {
   };
 
   const handleSaveClick = () => {
+    setWeight(editWeight);
     setEdit(false);
   };
 

@@ -25,12 +25,16 @@ const Card = ({ eid }: Props) => {
     setEdit(true);
   };
 
+  const setWeight = (weight: number) => {
+    setData({ ...data, weight: weight });
+  };
+
   return (
     <div className="card">
       <div className="card-body d-flex flex-column">
         <h5 className="card-title">{data.name}</h5>
         {edit ? (
-          <Edit weight={data.weight} setEdit={setEdit} />
+          <Edit weight={data.weight} setEdit={setEdit} setWeight={setWeight} />
         ) : (
           <>
             <p className="card-text flex-grow-1">{data.description}</p>
