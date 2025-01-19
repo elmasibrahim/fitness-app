@@ -30,7 +30,7 @@ const Card = ({ eid }: Props) => {
       <div className="card-body d-flex flex-column">
         <h5 className="card-title">{data.name}</h5>
         {edit ? (
-          <Edit weight={data.weight} />
+          <Edit weight={data.weight} setEdit={setEdit} />
         ) : (
           <>
             <p className="card-text flex-grow-1">{data.description}</p>

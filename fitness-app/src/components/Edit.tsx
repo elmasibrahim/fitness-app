@@ -3,9 +3,10 @@ import { useState } from "react";
 
 interface Props {
   weight: number;
+  setEdit: (edit: boolean) => void;
 }
 
-const Edit = ({ weight }: Props) => {
+const Edit = ({ weight, setEdit }: Props) => {
   const [editWeight, setEditWeight] = useState(weight);
 
   const handleMinusClick = () => {
@@ -14,6 +15,10 @@ const Edit = ({ weight }: Props) => {
 
   const handlePlusClick = () => {
     setEditWeight(editWeight + 0.5);
+  };
+
+  const handleExitClick = () => {
+    setEdit(false);
   };
 
   return (
@@ -25,11 +30,7 @@ const Edit = ({ weight }: Props) => {
       </div>
       <div className="d-flex justify-content-center align-items-center mt-2">
         <div className="mx-2">
-          <Button
-            color="danger"
-            icon="x"
-            onClick={() => console.log("Clicked exit")}
-          />
+          <Button color="danger" icon="x" onClick={handleExitClick} />
         </div>
         <div className="mx-2">
           <Button
