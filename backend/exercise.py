@@ -56,3 +56,11 @@ class Exercise:
         Property method for getting the weight member
         """
         return self.__weight
+
+    def update_weight(self, new_weight: float) -> None:
+        """
+        Method for updating the weight of the exercise in the database
+        """
+        query = "UPDATE exercise SET weight = %s WHERE eid = %s"
+        params = (new_weight, self.__eid)
+        DB.action(query, params)
