@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./styles/Card.css";
-import get from "./helpers/request";
+import get from "./helpers/get";
 import Button from "./Button";
 import Edit from "./Edit";
 

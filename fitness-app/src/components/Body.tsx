@@ -2,7 +2,7 @@ import Sidebar from "./Sidebar";
 import Content from "./Content";
 import "./styles/Body.css";
 import { useState } from "react";
-import get from "./helpers/request";
+import get from "./helpers/get";
 
 const Body = () => {
   const [data, setData] = useState([]);
