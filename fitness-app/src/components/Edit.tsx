@@ -1,13 +1,15 @@
 import Button from "./Button";
 import { useState } from "react";
+import post from "./helpers/post";
 
 interface Props {
   weight: number;
+  eid: number;
   setEdit: (edit: boolean) => void;
   setWeight: (weight: number) => void;
 }
 
-const Edit = ({ weight, setEdit, setWeight }: Props) => {
+const Edit = ({ weight, eid, setEdit, setWeight }: Props) => {
   const [editWeight, setEditWeight] = useState(weight);
 
   const handleMinusClick = () => {
@@ -22,7 +24,12 @@ const Edit = ({ weight, setEdit, setWeight }: Props) => {
     setEdit(false);
   };
 
-  const handleSaveClick = () => {
+  const handleSaveClick = async () => {
+    const data = {
+      eid: eid,
+      new_weight: editWeight,
+    };
+    await post("update_weight", data);
     setWeight(editWeight);
     setEdit(false);
   };
