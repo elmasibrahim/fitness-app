@@ -47,3 +47,11 @@ class MuscleGroup:
             eid, name, description, weight = item
             instance = Exercise(eid, name, description, weight)
             self.__exercises.append(instance)
+
+    def new_exercise(self, name: str, description: str, weight: float) -> None:
+        """
+        Method for adding a new exercise to the muscle group's exercises
+        """
+        query = "INSERT INTO exercise(mid, name, description, weight) VALUES (%s, %s, %s, %s)"
+        params = (self.__mid, name, description, weight)
+        DB.action(query, params)
