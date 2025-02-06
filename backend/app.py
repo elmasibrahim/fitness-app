@@ -50,5 +50,20 @@ def update_weight() -> dict:
     return {"message": f"Successfully updated weight of {exercise.name}"}
 
 
+@app.route("/add_exercise", methods=["POST"])
+def add_exercise() -> dict:
+    """
+    Flask function for adding a new exercise
+    """
+    data = request.get_json()
+    muscle_group = data["muscle_group"]
+    name = data["name"]
+    description = data["description"]
+    weight = data["weight"]
+    muscle_group_ins = MuscleGroup.get_muscle_group_by_name(muscle_group)
+    muscle_group_ins.new_exercise(name, description, weight)
+    return {"message": "Successfully added new exercise"}
+
+
 if __name__ == "__main__":
     app.run(debug=True)
