@@ -1,14 +1,22 @@
 import Card from "./Card";
 import Button from "./Button";
+import { useState } from "react";
 
 interface Props {
   data: number[];
 }
 
 const Content = ({ data }: Props) => {
+
+  const [add, setAdd] = useState(false);
+
+  const handleAddClick = () => {
+    setAdd(true);
+  }
+
   return (
     <div className="container text-center mt-4">
-      <Button color="primary" icon="plus" onClick={() => console.log("Clicked")} />
+      <Button color="primary" icon="plus" onClick={handleAddClick} />
       <div className="row row-cols-3">
         {data.map((eid) => (
           <div className="col mt-5" key={eid}>
