@@ -1,5 +1,6 @@
 import Card from "./Card";
 import Button from "./Button";
+import Add from "./Add";
 import { useState } from "react";
 
 interface Props {
@@ -16,7 +17,10 @@ const Content = ({ data }: Props) => {
   return (
     <div className="container text-center mt-4">
       {add ? (
-        <h1>Übung hinzufügen</h1>
+        <>
+          <h1>Add exercise</h1>
+          <Add />
+        </>
       ) : (
         <>
           <Button color="primary" icon="plus" onClick={handleAddClick} />
